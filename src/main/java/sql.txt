@@ -1,0 +1,35 @@
+SELECT
+    x,
+    y,
+    z,
+    a,
+    b,
+    c,
+    d,
+    e,
+    f,
+    z
+FROM
+    sampleTable
+WHERE
+    a = (
+        SELECT
+            a
+        FROM
+            (
+                SELECT
+                    a
+                FROM
+                    sampleTable
+                WHERE
+                    a >= 1
+                ORDER BY
+                    a ASC
+            )
+        WHERE
+            ROWNUM = 1
+    )
+order by
+ a,
+ b,
+ c
